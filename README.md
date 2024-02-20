@@ -1,1 +1,2 @@
 # DR-bot
+doctors of the facilities can create an online exam by adding a questions and right answers  after that this exam send to students that appear the questions only and inter the answers of students after that palm take this answers to compare this answers with the answers of doctors if have a match with them or return the same meaning the answer will be right in no don't have a match between them the answer will be wrong. 
