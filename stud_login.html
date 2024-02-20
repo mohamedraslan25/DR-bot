@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F7EFE5;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #3A4D39;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            color: #ECE3CE;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            color: #ECE3CE;
+        }
+   
+
+        form {
+            background-color: #FEFAE0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #3A4D39;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #5F6F52;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .register-link {
+            margin-top: 10px;
+            display: block;
+            color: #3498db;
+            text-decoration: none;
+            color: #5F6F52;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h2>Student Login</h2>
+    </header>
+    <form id="studentLoginForm">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="button" onclick="studentLogin()">Login</button>
+        <a href="stud_regresion.html" class="register-link">Dont Have an Acount? Register</a>
+    </form>
+
+    <script>
+        function studentLogin() {
+            // Placeholder function for handling student login
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // In a real-world scenario, you would send this data to the server for authentication
+            alert('Student Login:\nUsername: ' + username + '\nPassword: ' + password);
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F7EFE5;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #3A4D39;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            color: #ECE3CE;
+        }
+
+        form {
+            background-color: #FEFAE0;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            margin-top: 60px;
+            /* Adjusted margin for content below fixed header */
+        }
+
+        input,
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        #examInputs div {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        #examInputs div input {
+            width: 48%;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #A9B388;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>Create an Exam</h2>
+    </header>
+    <form method="post" action="/prepare_exam">
+        <label for="num_questions">Number of Questions</label>
+        <input type="number" id="num_questions" name="num_questions" min="1" placeholder="Number of Questions"
+            required />
+        <button type="button" onclick="CreateExamInputs()">Create</button>
+        <div id="examInputs"></div>
+        <button type="submit">Create Exam</button>
+    </form>
+    <script>
+        function CreateExamInputs() {
+            const numQuestionsInput = document.getElementById("num_questions");
+            const examInputs = document.getElementById("examInputs");
+            const numQuestions = parseInt(numQuestionsInput.value);
+
+            if (!isNaN(numQuestions) && numQuestions > 0) {
+                examInputs.innerHTML = "";
+
+                for (let i = 1; i <= numQuestions; i++) {
+                    const questionDiv = document.createElement("div");
+
+                    const questionInput = document.createElement("input");
+                    questionInput.setAttribute("type", "text");
+                    questionInput.setAttribute("id", `question_${i}`);
+                    questionInput.setAttribute("name", `question_${i}`);
+                    questionInput.setAttribute("placeholder", `Question ${i}`);
+                    questionInput.setAttribute("required", true);
+
+                    const answerInput = document.createElement("input");
+                    answerInput.setAttribute("type", "text");
+                    answerInput.setAttribute("id", `answer_${i}`);
+                    answerInput.setAttribute("name", `answer_${i}`);
+                    answerInput.setAttribute("placeholder", `Answer ${i}`);
+                    answerInput.setAttribute("required", true);
+
+                    questionDiv.appendChild(questionInput);
+                    questionDiv.appendChild(answerInput);
+                    examInputs.appendChild(questionDiv);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

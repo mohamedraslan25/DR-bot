@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F7EFE5;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #3A4D39;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            color: #ECE3CE;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            color: #ECE3CE;
+        }
+
+        form {
+            background-color: #FEFAE0;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
+            /* Adjusted width for responsiveness */
+            box-sizing: border-box;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        input {
+            margin: 20px;
+            padding: 3px;
+            width: 100%;
+            /* Make input fields 100% width */
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 8px 10px;
+            background-color: #3A4D39;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            /* Make button 100% width */
+            box-sizing: border-box;
+        }
+
+        button:hover {
+            background-color: #4F6F52;
+        }
+
+        /* Media query for smaller screens */
+        @media only screen and (max-width: 600px) {
+            form {
+                width: 100%;
+                /* Adjusted width for smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>Exam</h2>
+    </header>
+    <form method="post" action="/submit_answers">
+        {% for question in questions %}
+        <div>
+            <h3>{{ question }}</h3>
+            <textarea id="answer_{{ loop.index }}" name="answer_{{ loop.index }}" rows="4" cols="50"></textarea>
+        </div>
+        {% endfor %}
+        <button type="submit">Submit Answers</button>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #F7EFE5;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #3A4D39;
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+            color: #ECE3CE;
+            margin-bottom: 30px;
+            /* Adjusted margin for more space */
+            position: fixed;
+            top: 0;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            color: #ECE3CE;
+        }
+
+        .result-box {
+            width: 80vw;
+            margin: 50px auto 20px;
+            /* Adjusted margin-top for more space */
+            padding: 20px;
+            background-color: #FEFAE0;
+            text-align: center;
+            border-radius: 15px;
+            box-sizing: border-box;
+        }
+
+        .feedback {
+            margin: 10px 0;
+        }
+
+        .score {
+            color: #3A4D39;
+        }
+
+        .excellent,
+        .good,
+        .keep-practicing {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Exam Result</h1>
+    </header>
+    <div class="result-box">
+        <p class="feedback">Number of Correct Answers: {{ num_correct_answers }}</p>
+        <p class="feedback">Similarity Score: <span class="score">{{ similarity_score }}%</span></p>
+        <div class="feedback" style="color: #3A4D39">
+            {% if similarity_score >= 80 %}
+            <p class="excellent">A</p>
+            {% elif similarity_score >= 60 %}
+            <p class="very good">B</p>
+            {% elif similarity_score >= 50 %}
+            <p class="very good" >C</p>
+            {%else%}
+            <p class="keep-practicing">Failed ..</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+
+</html>
